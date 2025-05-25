@@ -3,185 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REBOBINAGEM CONSERTOS | Manutenção Elétrica Profissional</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>REBOBINAGEM CONSERTOS | Manutenção Elétrica</title>
     <style>
-        :root {
-            --azul-profissional: #0066cc;
-            --verde-whatsapp: #25D366;
-            --cinza-claro: #f5f5f5;
-        }
-        * {
+        /* ESTILO PRINCIPAL (IGUAL AO SEU, MAS APRIMORADO) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        body {
-            background-color: var(--cinza-claro);
             color: #333;
-            line-height: 1.6;
         }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        header {
+        
+        /* CABEÇALHO (ESTILO CONSERVADO) */
+        .header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 30px 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 20px 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        
         h1 {
-            color: var(--azul-profissional);
-            font-size: 2.5rem;
+            color: #0066cc;
+            font-size: 28px;
             margin-bottom: 10px;
         }
+        
         .slogan {
             color: #666;
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        .contatos-rapidos {
+        
+        /* BOTÕES DE CONTATO (MELHOR ADERÊNCIA) */
+        .contact-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin: 20px 0;
         }
-        .contato-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        
+        .contact-btn {
+            display: inline-block;
             padding: 10px 20px;
-            border-radius: 50px;
+            border-radius: 5px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: bold;
             transition: all 0.3s;
         }
-        .whatsapp {
-            background: var(--verde-whatsapp);
+        
+        .whatsapp-btn {
+            background-color: #25D366;
             color: white;
         }
-        .email {
-            background: #333;
+        
+        .email-btn {
+            background-color: #333;
             color: white;
         }
-        .formulario-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        
+        /* FORMULÁRIO (ESTILO SIMPLES E FUNCIONAL) */
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        
         .form-group {
             margin-bottom: 20px;
         }
+        
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
+            font-weight: bold;
         }
-        input, textarea, select {
+        
+        input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 4px;
+            font-size: 16px;
         }
+        
         textarea {
             min-height: 120px;
             resize: vertical;
         }
-        .btn-enviar {
-            background: var(--verde-whatsapp);
+        
+        .submit-btn {
+            background-color: #0066cc;
             color: white;
             border: none;
-            padding: 15px;
-            font-size: 1.1rem;
-            border-radius: 5px;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
             width: 100%;
             transition: background 0.3s;
         }
-        .btn-enviar:hover {
-            background: #128C7E;
-        }
-        @media (max-width: 600px) {
-            h1 { font-size: 1.8rem; }
-            .contatos-rapidos { flex-direction: column; }
+        
+        .submit-btn:hover {
+            background-color: #0055aa;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <div class="header">
             <h1>REBOBINAGEM CONSERTOS</h1>
             <p class="slogan">Soluções profissionais em manutenção elétrica desde 2010</p>
             
-            <div class="contatos-rapidos">
-                <a href="https://wa.me/5591981922189" class="contato-btn whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> (91) 98192-2189
+            <div class="contact-buttons">
+                <a href="https://wa.me/5591981922189" class="contact-btn whatsapp-btn" target="_blank">
+                    WhatsApp: (91) 98192-2189
                 </a>
-                <a href="mailto:contato@rebinagemconsertos.com" class="contato-btn email">
-                    <i class="far fa-envelope"></i> Email
+                <a href="mailto:contato@exemplo.com" class="contact-btn email-btn">
+                    Email
                 </a>
             </div>
-        </header>
-
-        <main class="formulario-container">
-            <h2><i class="far fa-edit"></i> FORMULÁRIO DE ATENDIMENTO</h2>
+        </div>
+        
+        <div class="form-container">
+            <h2>FORMULÁRIO DE ATENDIMENTO</h2>
             
-            <form id="formAtendimento">
+            <form id="serviceForm">
                 <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" required placeholder="Seu nome">
+                    <label for="clientName">Nome do Cliente:</label>
+                    <input type="text" id="clientName" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="contato">WhatsApp/Telefone:</label>
-                    <input type="tel" id="contato" required placeholder="(91) 98765-4321">
+                    <label for="problem">Descrição do Problema:</label>
+                    <textarea id="problem" required></textarea>
                 </div>
                 
-                <div class="form-group">
-                    <label for="problema">Descrição do Problema:</label>
-                    <textarea id="problema" required placeholder="Descreva detalhadamente o problema elétrico"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="urgencia">Nível de Urgência:</label>
-                    <select id="urgencia">
-                        <option value="normal">Normal</option>
-                        <option value="urgente">Urgente</option>
-                        <option value="emergencia">Emergência</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn-enviar">
-                    <i class="fab fa-whatsapp"></i> ENVIAR VIA WHATSAPP
-                </button>
+                <button type="submit" class="submit-btn">SOLICITAR ATENDIMENTO</button>
             </form>
-        </main>
+        </div>
     </div>
 
     <script>
-        document.getElementById('formAtendimento').addEventListener('submit', function(e) {
+        document.getElementById('serviceForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const nome = document.getElementById('nome').value;
-            const contato = document.getElementById('contato').value;
-            const problema = document.getElementById('problema').value;
-            const urgencia = document.getElementById('urgencia').value;
+            const name = document.getElementById('clientName').value;
+            const problem = document.getElementById('problem').value;
             
-            const mensagem = `*NOVA SOLICITAÇÃO - REBOBINAGEM CONSERTOS*%0A%0A` +
-                            `*Nome:* ${nome}%0A` +
-                            `*Contato:* ${contato}%0A` +
-                            `*Urgência:* ${urgencia.toUpperCase()}%0A` +
-                            `*Problema:*%0A${problema}`;
+            const message = `*NOVO PEDIDO - REBOBINAGEM CONSERTOS*%0A%0A` +
+                           `*Cliente:* ${name}%0A` +
+                           `*Problema:* ${problem}`;
             
-            window.open(`https://wa.me/5591981922189?text=${mensagem}`, '_blank');
+            window.open(`https://wa.me/5591981922189?text=${message}`, '_blank');
         });
     </script>
 </body>
