@@ -87,3 +87,173 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REBOBINAGEM CONSERTO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-original {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: #0066cc;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .contact-buttons-original {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .contact-buttons-original a {
+            background-color: #004499;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .photo-upload {
+            border: 2px dashed #ccc;
+            padding: 25px;
+            text-align: center;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .service-item {
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        button[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 25px auto;
+            width: 200px;
+        }
+        .map-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- CONTEÚDO ORIGINAL (INTACTO) -->
+    <div class="header-original">
+        <h1>REBOBINAGEM CONSERTO</h1>
+        <p>Soluções profissionais em manutenção elétrica desde 2010</p>
+    </div>
+
+    <div class="contact-buttons-original">
+        <a href="tel:11999998888">(11) 99999-8888</a>
+        <a href="mailto:seuemail@exemplo.com">Email</a>
+    </div>
+
+    <!-- NOVO FORMULÁRIO ADICIONADO ABAIXO (SEM MODIFICAR O QUE ESTÁ ACIMA) -->
+    <div class="form-section">
+        <h2>📋 FORMULÁRIO DE ATENDIMENTO</h2>
+        
+        <label for="problema">Descrição do Problema:</label>
+        <textarea id="problema" rows="4" required></textarea>
+        
+        <label for="nome">Nome do Cliente:</label>
+        <input type="text" id="nome" required>
+        
+        <div class="photo-upload" onclick="document.getElementById('fotos').click()">
+            <p>📸 ARRASTE OU CLIQUE PARA ADICIONAR FOTOS</p>
+            <input type="file" id="fotos" multiple accept="image/*" style="display: none;">
+        </div>
+        
+        <label for="data">Data:</label>
+        <input type="date" id="data" required>
+        
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" required>
+        
+        <label for="contato">Contato (WhatsApp/Telefone):</label>
+        <input type="tel" id="contato" required>
+        
+        <label for="endereco">Meu Endereço:</label>
+        <input type="text" id="endereco" value="AVENIDA FELIPE DE PAULA Nº 615 - VILA DE AMERICANO" readonly>
+        <a href="https://maps.app.goo.gl/f35idMkucdM3KT2H6" class="map-link" target="_blank">VER NO MAPA</a>
+        
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" rows="3"></textarea>
+    </div>
+
+    <div class="form-section">
+        <h2>🛠️ SERVIÇOS OFERECIDOS</h2>
+        <div class="services-grid">
+            <div class="service-item">✅ REBOBINAGEM DE MOTORES</div>
+            <div class="service-item">✅ CONSERTO DE VENTILADOR</div>
+            <div class="service-item">✅ MÁQUINA DE LAVAR</div>
+            <div class="service-item">✅ MAKITA/FURADEIRA</div>
+            <div class="service-item">✅ LIXADEIRA</div>
+            <div class="service-item">✅ SANDUICHEIRA</div>
+            <div class="service-item">✅ CAFETEIRA</div>
+            <div class="service-item">✅ LIQUIDIFICADOR</div>
+            <div class="service-item">✅ FOGÃO</div>
+            <div class="service-item">✅ FRITADEIRA AIR FRYER</div>
+            <div class="service-item">✅ LAVA JATO</div>
+            <div class="service-item">✅ E MUITO MAIS!</div>
+        </div>
+    </div>
+
+    <div class="form-section" style="text-align: center;">
+        <h2>📞 CONTATO RÁPIDO</h2>
+        <p><a href="https://wa.me/5591981922189" style="font-size: 18px; color: #0066cc;">WhatsApp: (91) 98192-2189</a></p>
+        <p><a href="mailto:seuemail@exemplo.com" style="color: #0066cc;">Email: seuemail@exemplo.com</a></p>
+    </div>
+
+    <button type="submit">ENVIAR SOLICITAÇÃO</button>
+
+    <script>
+        // Atualiza o texto quando fotos são selecionadas
+        document.getElementById('fotos').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const uploadText = document.querySelector('.photo-upload p');
+            if(files.length > 0) {
+                uploadText.textContent = `📸 ${files.length} FOTO(S) SELECIONADA(S)`;
+            } else {
+                uploadText.textContent = '📸 ARRASTE OU CLIQUE PARA ADICIONAR FOTOS';
+            }
+        });
+    </script>
+</body>
+</html>
