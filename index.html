@@ -1,14 +1,22 @@
+// 📂 EXPORTAR AGENDAMENTOS (JSON)
+function exportarAgendamentos() {
+    const agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
+    if (agendamentos.length === 0) {
+        alert("Nenhum agendamento para exportar!");
+        return;
+    }
 
-// Função de validação de telefone CORRIGIDA
-function validarTelefone(tel) {
-    return tel.replace(/\D/g, '').length >= 11;  // Mínimo 11 dígitos (com DDD)
+    // Cria um blob (arquivo) com os dados
+    const data = JSON.stringify(agendamentos, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+
+    // Gera link para download
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `agendamentos_${new Date().toLocaleDateString()}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
-
-// Máscara de telefone CORRIGIDA
-document.getElementById('telefone').addEventListener('input', function(e) {
-    let value = e.target.value.replace(/\D/g, '');
-    if (value.length > 11) value = value.substring(0,11);
-    value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-    value = value.replace(/(\d{5})(\d)/, '$1-$2');
-    e.target.value = value;
-});
