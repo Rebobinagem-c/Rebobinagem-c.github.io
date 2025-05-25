@@ -1,22 +1,8 @@
-// 📂 EXPORTAR AGENDAMENTOS (JSON)
-function exportarAgendamentos() {
-    const agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
-    if (agendamentos.length === 0) {
-        alert("Nenhum agendamento para exportar!");
-        return;
-    }
-
-    // Cria um blob (arquivo) com os dados
-    const data = JSON.stringify(agendamentos, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-
-    // Gera link para download
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `agendamentos_${new Date().toLocaleDateString()}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
+[
+  {
+    "cliente": "João Silva",
+    "telefone": "(11) 99999-8888",
+    "servico": "Rebobinagem de Motor",
+    "data": "2023-11-05"
+  }
+]
