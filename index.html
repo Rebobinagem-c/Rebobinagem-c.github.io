@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Serviços - Repobinagem</title>
+    <title>Rebobinagem Consertos - Formulário</title>
     <style>
         * {
             margin: 0;
@@ -13,30 +13,59 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #FFD700, #87CEEB);
             color: #333;
             line-height: 1.6;
             padding: 20px;
+            min-height: 100vh;
         }
         
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #FF8C00, #FF4500);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(to right, #FFD700, #DA70D6);
         }
         
         h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 24px;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            font-weight: normal;
+            opacity: 0.9;
+        }
+        
+        .form-content {
+            padding: 30px;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         label {
@@ -44,6 +73,7 @@
             margin-bottom: 8px;
             font-weight: bold;
             color: #2c3e50;
+            font-size: 1.1rem;
         }
         
         input[type="text"],
@@ -54,211 +84,180 @@
         textarea,
         select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #FF8C00;
+            outline: none;
         }
         
         .upload-area {
-            border: 2px dashed #ccc;
-            padding: 30px;
+            border: 3px dashed #DA70D6;
+            padding: 40px;
             text-align: center;
-            border-radius: 5px;
+            border-radius: 10px;
             margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.3s;
+            background-color: #f9f0ff;
+            color: #6a3093;
+            font-weight: bold;
         }
         
         .upload-area:hover {
-            border-color: #2c3e50;
-            background-color: #f9f9f9;
-        }
-        
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-        }
-        
-        .checkbox-item input {
-            margin-right: 10px;
-        }
-        
-        .contact-info {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .contact-link {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .contact-link:hover {
-            background-color: #1a252f;
-        }
-        
-        .whatsapp {
-            background-color: #25D366;
-        }
-        
-        .whatsapp:hover {
-            background-color: #128C7E;
-        }
-        
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #c0392b;
+            border-color: #FF8C00;
+            background-color: #f3e5ff;
         }
         
         .map-link {
             display: inline-block;
             margin-top: 10px;
-            color: #3498db;
+            color: #1E90FF;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
         }
         
         .map-link:hover {
+            color: #FF4500;
             text-decoration: underline;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to right, #FF4500, #FF8C00);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, #E03E00, #E07A00);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+        }
+        
+        .contact-info {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #87CEEB;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #1E90FF, #4169E1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .contact-link.whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        
+        @media (max-width: 600px) {
+            .header {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>REBOBINAGEM CONSERTOS</h1>
+        <div class="header">
+            <h1>REBOBINAGEM CONSERTOS</h1>
+            <p class="subtitle">SOLUÇÕES PROFISSIONAIS EM MANUTENÇÃO ELÉTRICA DESDE 2010</p>
+        </div>
         
-        <form action="#" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="nome">Nome do Cliente:</label>
-                <input type="text" id="nome" name="nome" required>
-            </div>
-            
-            <div class="form-group">
-                <label>Fotos do Equipamento:</label>
-                <div class="upload-area" onclick="document.getElementById('fotos').click()">
-                    <p>ARRASTE OU CLIQUE PARA ADICIONAR FOTOS</p>
-                    <input type="file" id="fotos" name="fotos" multiple style="display: none;" accept="image/*">
+        <div class="form-content">
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nome">Nome do Cliente:</label>
+                    <input type="text" id="nome" name="nome" required>
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="data">Data:</label>
-                <input type="date" id="data" name="data" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="hora">Hora:</label>
-                <input type="time" id="hora" name="hora" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="contato">Contato (WhatsApp/Telefone):</label>
-                <input type="tel" id="contato" name="contato" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="endereco">Endereço:</label>
-                <input type="text" id="endereco" name="endereco" value="AVENIDA FELIPE DE PALLA Nº 615 - VILA AMERICANA" required>
-                <a href="https://maps.app.goo.gl/y1HqNvpgMT4LGox1A" class="map-link" target="_blank">VER NO MAPA</a>
-            </div>
-            
-            <div class="form-group">
-                <label for="observacoes">Observações:</label>
-                <textarea id="observacoes" name="observacoes" rows="4"></textarea>
-            </div>
-            
-            <div class="form-group">
-                <h2>SERVIÇOS OFERECIDOS</h2>
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico1" name="servicos[]" value="Rebobinagem de Motores">
-                        <label for="servico1">REBOBINAGEM DE MOTORES</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico2" name="servicos[]" value="Conserto de Ventilador">
-                        <label for="servico2">CONSERTO DE VENTILADOR</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico3" name="servicos[]" value="Máquina de Lavar">
-                        <label for="servico3">MÁQUINA DE LAVAR</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico4" name="servicos[]" value="Manta/Furadeira">
-                        <label for="servico4">MANTA/FURADEIRA</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico5" name="servicos[]" value="Lixadeira">
-                        <label for="servico5">LIXADEIRA</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico6" name="servicos[]" value="Sanduicheira">
-                        <label for="servico6">SANDUICHEIRA</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico7" name="servicos[]" value="Cafeteira">
-                        <label for="servico7">CAFETEIRA</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico8" name="servicos[]" value="Liquidificador">
-                        <label for="servico8">LIQUIDIFICADOR</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico9" name="servicos[]" value="Fogão">
-                        <label for="servico9">FOGÃO</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico10" name="servicos[]" value="Fritadeira Air Fryer">
-                        <label for="servico10">FRITADEIRA AIR FRYER</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico11" name="servicos[]" value="Lava Jato">
-                        <label for="servico11">LAVA JATO</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="servico12" name="servicos[]" value="Outros">
-                        <label for="servico12">E MUITO MAIS!</label>
+                
+                <div class="form-group">
+                    <label>Fotos do Equipamento:</label>
+                    <div class="upload-area" onclick="document.getElementById('fotos').click()">
+                        <p>ARRASTE OU CLIQUE PARA ADICIONAR FOTOS</p>
+                        <input type="file" id="fotos" name="fotos" multiple style="display: none;" accept="image/*">
                     </div>
                 </div>
-            </div>
-            
-            <div class="contact-info">
-                <h2>CONTATO RÁPIDO</h2>
-                <a href="https://wa.me/5591981922189" class="contact-link whatsapp" target="_blank">WhatsApp: (91) 98192-2189</a>
-                <a href="tel:91981922189" class="contact-link">Ligar: (91) 98192-2189</a>
-                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" class="contact-link" target="_blank">Email: sesperrail@example.com</a>
-            </div>
-            
-            <button type="submit" class="submit-btn">ENVIAR SOLICITAÇÃO</button>
-        </form>
+                
+                <div class="form-group">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contato">Contato (WhatsApp/Telefone):</label>
+                    <input type="tel" id="contato" name="contato" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" value="AVENIDA FELIPE DE PALLA Nº 615 - VILA AMERICANA" required>
+                    <a href="https://maps.app.goo.gl/y1HqNvpgMT4LGox1A" class="map-link" target="_blank">VER NO MAPA</a>
+                </div>
+                
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" name="observacoes"></textarea>
+                </div>
+                
+                <div class="contact-info">
+                    <h3>CONTATO RÁPIDO</h3>
+                    <a href="https://wa.me/5591981922189" class="contact-link whatsapp" target="_blank">WhatsApp: (91) 98192-2189</a>
+                    <a href="tel:91981922189" class="contact-link">Ligar: (91) 98192-2189</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">ENVIAR SOLICITAÇÃO</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
