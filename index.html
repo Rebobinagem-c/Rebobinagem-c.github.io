@@ -1,58 +1,13 @@
-// Adicionar no evento submit
-if (!validarTelefone(telefone)) {
-    alert('Telefone inválido!');
-    return;
+// Função de validação de telefone CORRIGIDA
+function validarTelefone(tel) {
+    return tel.replace(/\D/g, '').length >= 11;  // Mínimo 11 dígitos (com DDD)
 }
 
-function validarTelefone(tel) {
-    return tel.replace(/\D/g,'').length >= 10;
-}// Adicionar função para exportar agendamentos
-function exportarAgendamentos() {
-    const agendamentos = JSON.parse(localStorage.getItem('agendamentos')) || [];
-    const data = JSON.stringify(agendamentos, null, 2);
-    const blob = new Blob([data], {type: 'application/json'});
-    // ...código para download
-}// Sanitizar inputs
-function sanitizeInput(input) {
-    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}document.addEventListener('DOMContentLoaded', () => {
-    carregarAgendamentos();
-    
-    // Máscara de telefone melhorada
-    document.getElementById('telefone').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 11) value = value.substring(0,11);
-        
-        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-        value = value.replace(/(\d{5})(\d)/, '$1-$2');
-        e.target.value = value;
-    });
+// Máscara de telefone CORRIGIDA
+document.getElementById('telefone').addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 11) value = value.substring(0,11);
+    value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+    value = value.replace(/(\d{5})(\d)/, '$1-$2');
+    e.target.value = value;
 });
-
-// Validação de telefone
-function validarTelefone(tel) {
-    return tel.replace(/\D/g,'').length >= 10;
-}
-
-// Sanitização de inputs
-function sanitizeInput(input) {
-    return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
-// [Mantenha as outras funções existentes...]
-
-document.getElementById('agendamentoForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    let cliente = sanitizeInput(document.getElementById('cliente').value);
-    let telefone = document.getElementById('telefone').value;
-    
-    if (!validarTelefone(telefone)) {
-        alert('Por favor, insira um telefone válido com DDD!');
-        return;
-    }
-    
-    // [Restante do código...]
-});<button onclick="exportarAgendamentos()" style="background:#3498db;margin-top:10px;">
-    <i class="fas fa-file-export"></i> Exportar Agendamentos
-</button> 
