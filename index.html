@@ -3,168 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REBOBINAGEM CONSERTOS | Manutenção Elétrica</title>
+    <title>REBOBINAGEM CONSERTOS | Original</title>
     <style>
-        /* ESTILO PRINCIPAL (IGUAL AO SEU, MAS APRIMORADO) */
+        /* ESTILO ORIGINAL (APRIMORADO) */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        
-        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.5;
         }
         
-        /* CABEÇALHO (ESTILO CONSERVADO) */
+        /* CABEÇALHO IDÊNTICO */
         .header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 20px 0;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
         
         h1 {
-            color: #0066cc;
-            font-size: 28px;
-            margin-bottom: 10px;
+            color: #0066cc; /* Azul original */
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         
         .slogan {
             color: #666;
             font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        /* BOTÕES DE CONTATO (MELHOR ADERÊNCIA) */
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .contact-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
-        }
-        
-        .email-btn {
-            background-color: #333;
-            color: white;
-        }
-        
-        /* FORMULÁRIO (ESTILO SIMPLES E FUNCIONAL) */
-        .form-container {
-            background-color: white;
-            padding: 25px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .form-group {
             margin-bottom: 20px;
+        }
+        
+        /* CONTATOS (ESTILO ORIGINAL) */
+        .contatos {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contato {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        /* FORMULÁRIO (VERSÃO ORIGINAL SIMPLES) */
+        .formulario {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .campo {
+            margin-bottom: 15px;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
         }
         
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 3px;
         }
         
         textarea {
-            min-height: 120px;
-            resize: vertical;
+            height: 100px;
         }
         
-        .submit-btn {
-            background-color: #0066cc;
+        .botao {
+            background: #0066cc;
             color: white;
             border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 3px;
             cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #0055aa;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>REBOBINAGEM CONSERTOS</h1>
-            <p class="slogan">Soluções profissionais em manutenção elétrica desde 2010</p>
-            
-            <div class="contact-buttons">
-                <a href="https://wa.me/5591981922189" class="contact-btn whatsapp-btn" target="_blank">
-                    WhatsApp: (91) 98192-2189
-                </a>
-                <a href="mailto:contato@exemplo.com" class="contact-btn email-btn">
-                    Email
-                </a>
-            </div>
-        </div>
+    <!-- CABEÇALHO (IGUAL AO ANTERIOR) -->
+    <div class="header">
+        <h1>REBOBINAGEM CONSERTOS</h1>
+        <p class="slogan">Soluções profissionais em manutenção elétrica desde 2010</p>
         
-        <div class="form-container">
-            <h2>FORMULÁRIO DE ATENDIMENTO</h2>
-            
-            <form id="serviceForm">
-                <div class="form-group">
-                    <label for="clientName">Nome do Cliente:</label>
-                    <input type="text" id="clientName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="problem">Descrição do Problema:</label>
-                    <textarea id="problem" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">SOLICITAR ATENDIMENTO</button>
-            </form>
+        <div class="contatos">
+            <a href="https://wa.me/5591981922189" class="contato">(91) 98192-2189</a>
+            <a href="mailto:contato@exemplo.com" class="contato">Email</a>
         </div>
     </div>
-
-    <script>
-        document.getElementById('serviceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('clientName').value;
-            const problem = document.getElementById('problem').value;
-            
-            const message = `*NOVO PEDIDO - REBOBINAGEM CONSERTOS*%0A%0A` +
-                           `*Cliente:* ${name}%0A` +
-                           `*Problema:* ${problem}`;
-            
-            window.open(`https://wa.me/5591981922189?text=${message}`, '_blank');
-        });
-    </script>
+    
+    <!-- FORMULÁRIO (ESTILO ORIGINAL) -->
+    <div class="formulario">
+        <h2>FORMULÁRIO DE ATENDIMENTO</h2>
+        
+        <div class="campo">
+            <label>Descrição do Problema:</label>
+            <textarea></textarea>
+        </div>
+        
+        <div class="campo">
+            <label>Nome do Cliente:</label>
+            <input type="text">
+        </div>
+        
+        <button class="botao">ENVIAR SOLICITAÇÃO</button>
+    </div>
 </body>
 </html>
