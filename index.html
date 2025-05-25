@@ -83,7 +83,33 @@
         // Função para redirecionar ao clicar no WhatsApp
         function redirectWhatsApp() {
             window.open('https://wa.me/559198192-2189', '_blank');
-        }
+     <script>
+  document.getElementById('agendamentoForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Captura os dados do formulário
+    const nome = document.getElementById('cliente').value;
+    const telefone = document.getElementById('telefone').value;
+    const servico = document.getElementById('servico').value;
+    const data = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+    const obs = document.getElementById('descricao').value;
+
+    // Formata a mensagem para WhatsApp
+    const mensagem = `*NOVO PEDIDO DE SERVIÇO*%0A%0A` +
+                     `*Nome:* ${nome}%0A` +
+                     `*Telefone:* ${telefone}%0A` +
+                     `*Serviço:* ${servico}%0A` +
+                     `*Data:* ${data} às ${hora}%0A` +
+                     `*Observações:* ${obs || 'Nenhuma'}`;
+
+    // Redireciona para WhatsApp (substitua SEUNUMERO)
+    window.open(`https://wa.me/5511999998888?text=${mensagem}`, '_blank');
+    
+    // Opcional: Mantém o armazenamento local também
+    salvarAgendamento({ nome, telefone, servico, data, hora, obs });
+  });
+</script>   }
     </script>
 </body>
 </html>
