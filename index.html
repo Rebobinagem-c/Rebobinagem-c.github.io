@@ -226,5 +226,54 @@
             </form>
         </div>
     </div>
+<script>
+    document.getElementById('btnEnviarZap').addEventListener('click', function() {
+        const nome = document.querySelector('input[placeholder="Seu nome"]').value;
+        const data = document.querySelector('input[type="date"]').value;
+        const contato = document.querySelector('input[placeholder*="98765"]').value;
+        const endereco = document.querySelector('input[placeholder*="ENDEREÇO"]').value || document.querySelector('input[placeholder*="VILA"]').value;
+        const observacoes = document.querySelector('textarea').value;
+
+        // Pega todos os serviços selecionados
+        const servicosSelecionados = Array.from(document.querySelector('select[multiple]').selectedOptions)
+            .map(opt => `- ${opt.text}`)
+            .join('%0A');
+
+        const mensagem = `*NOVO PEDIDO PELO SITE*%0A%0A` +
+                        `*Nome:* ${nome}%0A` +
+                        `*Data:* ${data}%0A` +
+                        `*Contato:* ${contato}%0A` +
+                        `*Endereço:* ${endereco}%0A` +
+                        `*Observações:* ${observacoes}%0A%0A` +
+                        `*Serviços Solicitados:*%0A${servicosSelecionados}`;
+
+        window.open(`https://wa.me/5591981922189?text=${mensagem}`, '_blank');
+    });
+</script>
 </body>
-</html>
+</html><script>
+document.getElementById('formAtendimento').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('nome').value.trim();
+    const contato = document.getElementById('contato').value.trim();
+    const problema = document.getElementById('problema').value.trim();
+    const urgencia = document.getElementById('urgencia').value;
+    
+    if (!nome || !contato || !problema) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+    }
+    
+    const mensagem = `*NOVA SOLICITAÇÃO - REBOBINAGEM CONSERTOS*\n\n` +
+                    `*Nome:* ${nome}\n` +
+                    `*Contato:* ${contato}\n` +
+                    `*Urgência:* ${urgencia.toUpperCase()}\n` +
+                    `*Problema:*\n${problema}`;
+    
+    const mensagemUrl = encodeURIComponent(mensagem);
+    
+    window.open(`https://wa.me/5591981922189?text=${mensagemUrl}`, '_blank');
+});
+</script>
+
