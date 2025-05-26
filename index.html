@@ -219,7 +219,7 @@
                 <div class="contact-info">
                     <h3>CONTATO RÁPIDO</h3>
                     <a href="https://wa.me/5591981922189" class="contact-link whatsapp" target="_blank">WhatsApp: (91) 98192-2189</a>
-                    <a href="mailto:xexperta@example.com" class="contact-link">Email: xexperta@example.com</a>
+                    <a href="mailto:xexperta@example.com" class="contact-link">mailto:franciscodaschagasdosssilva@gmail.com</a>
                 </div>
                 
                 <button type="submit" class="submit-btn">ENVIAR SOLICITAÇÃO</button>
@@ -248,7 +248,32 @@
                         `*Serviços Solicitados:*%0A${servicosSelecionados}`;
 
         window.open(`https://wa.me/5591981922189?text=${mensagem}`, '_blank');
-    });
+    });<script>
+document.getElementById('formAtendimento').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById('nome').value.trim();
+    const contato = document.getElementById('contato').value.trim();
+    const problema = document.getElementById('problema').value.trim();
+    const urgencia = document.getElementById('urgencia').value;
+    
+    if (!nome || !contato || !problema) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+    }
+    
+    const mensagem = `*NOVA SOLICITAÇÃO - REBOBINAGEM CONSERTOS*\n\n` +
+                    `*Nome:* ${nome}\n` +
+                    `*Contato:* ${contato}\n` +
+                    `*Urgência:* ${urgencia.toUpperCase()}\n` +
+                    `*Problema:*\n${problema}`;
+    
+    const mensagemUrl = encodeURIComponent(mensagem);
+    
+    window.open(`https://wa.me/5591981922189?text=${mensagemUrl}`, '_blank');
+});
+</script>
+
 </script>
 </body>
 </html><script>
