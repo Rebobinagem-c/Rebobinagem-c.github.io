@@ -324,7 +324,68 @@ color: #4169E1;
       font-style: italic;
       color: #555;
     }
+  </style<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Serviço</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    input,
+    textarea,
+    select {
+      margin-left: 15px;
+      margin-right: 15px;
+      display: block;
+      width: calc(100% - 30px);
+      box-sizing: border-box;
+    }
+
+    label {
+      margin-left: 15px;
+      display: block;
+      margin-top: 10px;
+    }
   </style>
+</head>
+<body>
+
+  <form>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required />
+
+    <label for="data">Data do serviço:</label>
+    <input type="date" id="data" required />
+
+    <label for="contato">Contato (WhatsApp):</label>
+    <input type="tel" id="contato" required />
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" value="" required />
+
+    <label for="observacoes">Observações:</label>
+    <textarea id="observacoes" rows="4"></textarea>
+
+    <label for="servicos">Serviços desejados:</label>
+    <select id="servicos" multiple size="5" required>
+      <option value="ASPIREADOR DE PÓ">ASPIRADOR DE PÓ</option>
+      <option value="TANQUINHO DE LAVAR">TANQUINHO DE LAVAR</option>
+      <option value="REBOBINAGEM DE MOTORES">REBOBINAGEM DE MOTORES</option>
+      <option value="MANUTENÇÃO DE FOGÃO">MANUTENÇÃO DE FOGÃO</option>
+      <option value="LIXADEIRA">LIXADEIRA</option>
+      <option value="CAFETEIRA">CAFETEIRA</option>
+      <option value="OUTROS SERVIÇOS">OUTROS SERVIÇOS</option>
+    </select>
+
+    <button type="submit">Enviar para WhatsApp</button>
+  </form>
+
+</body>
+</html>
+>
 </head>
 >
 </head>
