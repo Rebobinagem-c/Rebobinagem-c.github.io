@@ -1,186 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rebobinagem Consertos - Agendamento</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebobinagem Consertos - Serviços</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background: linear-gradient(135deg, #FFD700, #001F3F);
-      padding: 20px;
-      color: #333;
-    }
+        body {
+            background: linear-gradient(135deg, #FFD700, #001F3F);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      padding: 30px;
-    }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            padding: 30px;
+        }
 
-    .header {
-      background: linear-gradient(to right, #FFA500, #FF4500);
-      color: white;
-      padding: 25px;
-      text-align: center;
-      border-radius: 10px 10px 0 0;
-    }
+        .header {
+            background: linear-gradient(to right, #FFA500, #FF4500);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
 
-    .header h1 {
-      font-size: 2rem;
-      margin-bottom: 5px;
-    }
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(to right, #FFD700, #DA70D6);
+        }
 
-    .subtitle {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
 
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-    textarea {
-      resize: vertical;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
 
-    .upload-area {
-      border: 2px dashed #DA70D6;
-      padding: 30px;
-      text-align: center;
-      color: #6a3093;
-      font-weight: bold;
-      margin-top: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
 
-    .map-link {
-      display: block;
-      margin-top: 10px;
-      color: #1E90FF;
-      font-weight: bold;
-      text-decoration: none;
-    }
+        .upload-area {
+            border: 3px dashed #DA70D6;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #f9f0ff;
+            color: #6a3093;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
 
-    .btn {
-      background: linear-gradient(to right, #25D366, #128C7E);
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 20px;
-      cursor: pointer;
-      width: 100%;
-    }
+        .services-section select {
+            height: auto;
+            background-color: #f9f9f9;
+        }
 
-    .btn:hover {
-      opacity: 0.9;
-    }
+        .map-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #1E90FF;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-    .info {
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 15px;
-      color: #555;
-    }
-  </style>
+        .contact-info {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #87CEEB;
+        }
+
+        .contact-link {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #1E90FF, #4169E1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(to right, #FF4500, #FF8C00);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>REBOBINAGEM CONSERTOS</h1>
-      <p class="subtitle">Soluções profissionais em manutenção elétrica desde 2010</p>
+    <div class="container">
+        <div class="header">
+            <h1>REBOBINAGEM CONSERTOS</h1>
+            <p class="subtitle">SOLUÇÕES PROFISSIONAIS EM MANUTENÇÃO ELÉTRICA DESDE 2010</p>
+        </div>
+
+        <form id="formServico">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required />
+            </div>
+            <div class="form-group">
+                <label for="data">Data do serviço:</label>
+                <input type="date" id="data" required />
+            </div>
+            <div class="form-group">
+                <label for="contato">Contato (WhatsApp):</label>
+                <input type="tel" id="contato" required />
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" value="AVENIDA FELIPE DE PAULA Nº 615 - VILA DE AMERICANO-PÁ" required />
+                <a href="https://maps.app.goo.gl/y1HqNvpgMT4LGox1A" class="map-link" target="_blank">VER NO MAPA</a>
+            </div>
+            <div class="form-group">
+                <label for="observacoes">Observações:</label>
+                <textarea id="observacoes" rows="4"></textarea>
+            </div>
+            <div class="form-group services-section">
+                <label for="servicos">Serviços desejados:</label>
+                <select id="servicos" multiple size="6" required>
+                    <option value="REBOBINAGEM DE MOTORES">REBOBINAGEM DE MOTORES</option>
+                    <option value="CONSERTO DE VENTILADOR">CONSERTO DE VENTILADOR</option>
+                    <option value="MANUTENÇÃO DE LAVADORA">MANUTENÇÃO DE LAVADORA</option>
+                    <option value="MANUTENÇÃO DE AIR FRYER">MANUTENÇÃO DE AIR FRYER</option>
+                    <option value="LIXADEIRA">LIXADEIRA</option>
+                    <option value="CAFETEIRA">CAFETEIRA</option>
+                    <option value="FURADEIRA">FURADEIRA</option>
+                    <option value="CENTRÍFUGA">CENTRÍFUGA</option>
+                    <option value="SECADORA">SECADORA</option>
+                    <option value="OUTROS">OUTROS</option>
+                </select>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #666;">(Segure CTRL para selecionar múltiplos serviços)</p>
+            </div>
+            <button type="submit" class="submit-btn">ENVIAR PARA WHATSAPP</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>CONTATO RÁPIDO</h3>
+            <a href="https://wa.me/5591981922189" class="contact-link whatsapp" target="_blank">WhatsApp: (91) 98192-2189</a>
+            <a href="mailto:franciscodaschagasdosssilva@gmail.com" class="contact-link">franciscodaschagasdosssilva@gmail.com</a>
+        </div>
     </div>
+    <script>
+        document.getElementById('formServico').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const data = document.getElementById('data').value;
+            const contato = document.getElementById('contato').value;
+            const endereco = document.getElementById('endereco').value;
+            const observacoes = document.getElementById('observacoes').value;
+            const servicosSelecionados = Array.from(document.getElementById('servicos').selectedOptions)
+                .map(option => `- ${option.value}`)
+                .join('%0A');
 
-    <form id="formServico">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" required>
+            const mensagem = `*NOVO AGENDAMENTO PELO SITE*%0A%0A` +
+                `*Nome:* ${nome}%0A` +
+                `*Data:* ${data}%0A` +
+                `*Contato:* ${contato}%0A` +
+                `*Endereço:* ${endereco}%0A` +
+                `*Observações:* ${observacoes}%0A%0A` +
+                `*Serviços Solicitados:*%0A${servicosSelecionados}`;
 
-      <label for="data">Data do serviço:</label>
-      <input type="date" id="data" required>
-
-      <label for="contato">Contato (WhatsApp):</label>
-      <input type="tel" id="contato" required>
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" required>
-      <a href="https://maps.app.goo.gl/y1HqNvpgMT4LGox1A" class="map-link" target="_blank">Ver no mapa</a>
-
-      <label>Fotos do Equipamento:</label>
-      <div class="upload-area" onclick="document.getElementById('fotos').click()">Clique para adicionar fotos</div>
-      <input type="file" id="fotos" multiple style="display: none;">
-
-      <label for="observacoes">Observações:</label>
-      <textarea id="observacoes" rows="4"></textarea>
-
-      <label for="servicos">Serviços desejados:</label>
-      <select id="servicos" multiple size="6" required>
-        <option value="REBOBINAGEM DE MOTORES">REBOBINAGEM DE MOTORES</option>
-        <option value="CONSERTO DE VENTILADOR">CONSERTO DE VENTILADOR</option>
-        <option value="MANUTENÇÃO DE LAVADORA">MANUTENÇÃO DE LAVADORA</option>
-        <option value="MANUTENÇÃO DE AIR FRYER">MANUTENÇÃO DE AIR FRYER</option>
-        <option value="CAFETEIRA">CAFETEIRA</option>
-        <option value="TANQUINHO DE LAVAR">TANQUINHO DE LAVAR</option>
-        <option value="LIXADEIRA">LIXADEIRA</option>
-        <option value="FURADEIRA">FURADEIRA</option>
-        <option value="CENTRÍFUGA">CENTRÍFUGA</option>
-        <option value="SECADOR">SECADOR</option>
-        <option value="OUTRAS OPÇÕES">OUTRAS OPÇÕES</option>
-      </select>
-
-      <button type="submit" class="btn">Enviar para WhatsApp</button>
-    </form>
-
-    <div class="info">Você será redirecionado para o WhatsApp com os dados preenchidos.</div>
-  </div>
-
-  <script>
-  document.getElementById('formServico').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const nome = document.getElementById('nome').value;
-    const data = document.getElementById('data').value;
-    const contato = document.getElementById('contato').value;
-    const endereco = document.getElementById('endereco').value;
-    const observacoes = document.getElementById('observacoes').value;
-    const servicos = Array.from(document.getElementById('servicos').selectedOptions)
-                          .map(op => '- ' + op.value).join('%0A');
-
-    const mensagem = `*NOVO AGENDAMENTO PELO SITE*%0A%0A` +
-                     `*Nome:* ${nome}%0A` +
-                     `*Data:* ${data}%0A` +
-                     `*Contato:* ${contato}%0A` +
-                     `*Endereço:* ${endereco}%0A` +
-                     `*Observações:* ${observacoes}%0A%0A` +
-                     `*Serviços Solicitados:*%0A${servicos}`;
-
-    const numero = '5591981922189'; // seu número do WhatsApp
-    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
-
-    // Isso já abre o WhatsApp direto com a mensagem preenchida
-    window.location.href = url;
-  });
-</script>
+            const numeroWhatsApp = '5591981922189';
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
