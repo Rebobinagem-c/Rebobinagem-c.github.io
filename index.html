@@ -158,29 +158,29 @@
   </div>
 
   <script>
-    document.getElementById('formServico').addEventListener('submit', function(e) {
-      e.preventDefault();
+  document.getElementById('formServico').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      const nome = document.getElementById('nome').value;
-      const data = document.getElementById('data').value;
-      const contato = document.getElementById('contato').value;
-      const endereco = document.getElementById('endereco').value;
-      const observacoes = document.getElementById('observacoes').value;
-      const servicos = Array.from(document.getElementById('servicos').selectedOptions)
-                            .map(op => '- ' + op.value).join('%0A');
+    const nome = document.getElementById('nome').value;
+    const data = document.getElementById('data').value;
+    const contato = document.getElementById('contato').value;
+    const endereco = document.getElementById('endereco').value;
+    const observacoes = document.getElementById('observacoes').value;
+    const servicos = Array.from(document.getElementById('servicos').selectedOptions)
+                          .map(op => '- ' + op.value).join('%0A');
 
-      const mensagem = `*NOVO AGENDAMENTO PELO SITE*%0A%0A` +
-                       `*Nome:* ${nome}%0A` +
-                       `*Data:* ${data}%0A` +
-                       `*Contato:* ${contato}%0A` +
-                       `*Endereço:* ${endereco}%0A` +
-                       `*Observações:* ${observacoes}%0A%0A` +
-                       `*Serviços Solicitados:*%0A${servicos}`;
+    const mensagem = `*NOVO AGENDAMENTO PELO SITE*%0A%0A` +
+                     `*Nome:* ${nome}%0A` +
+                     `*Data:* ${data}%0A` +
+                     `*Contato:* ${contato}%0A` +
+                     `*Endereço:* ${endereco}%0A` +
+                     `*Observações:* ${observacoes}%0A%0A` +
+                     `*Serviços Solicitados:*%0A${servicos}`;
 
-      const numero = '5591981922189'; // seu número
-      const url = `https://wa.me/${numero}?text=${mensagem}`;
-      window.open(url, '_blank');
-    });
-  </script>
-</body>
-</html>
+    const numero = '5591981922189'; // seu número do WhatsApp
+    const url = `https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`;
+
+    // Isso já abre o WhatsApp direto com a mensagem preenchida
+    window.location.href = url;
+  });
+</script>
