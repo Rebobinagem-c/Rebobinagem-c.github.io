@@ -279,7 +279,18 @@ color: #4169E1;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Serviços</title>
 
-  <style>
+  <style<style>
+  input,
+  textarea,
+  select {
+    margin-left: 15px;
+    margin-right: 15px;
+    display: block;
+    width: calc(100% - 30px); /* Garante que tudo cabe certinho */
+    box-sizing: border-box;
+  }
+</style>
+>
     body {
       padding: 20px; /* Espaço interno ao redor de todo o conteúdo */
     }
