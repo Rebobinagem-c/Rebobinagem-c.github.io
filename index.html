@@ -15,8 +15,33 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        }.lateral-imagens {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    z-index: 0;
+}
 
+.lateral-esquerda {
+    left: 0;
+    background-image: url('images/lateral-esquerda.png'); /* Coloque o caminho da sua imagem aqui */
+}
+
+.lateral-direita {
+    right: 0;
+    background-image: url('images/lateral-direita.png'); /* Coloque o caminho da sua imagem aqui */
+}
+
+.conteudo-centro {
+    position: relative;
+    z-index: 1;
+}
+
+         
         body {
             background: linear-gradient(135deg, #FFD700, #001F3F);
             color: #333;
